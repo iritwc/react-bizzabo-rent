@@ -22,6 +22,7 @@ class RentAdsList extends Component {
   static defaultProps = {};
 
   renderGroup(key, group) {
+      const {selected} = this.props;
       return (
           <div key={key} className="list-group">
               <a href="#" className="list-group-item group-title">
@@ -30,7 +31,7 @@ class RentAdsList extends Component {
               </a>
               {group.map( (rentAd)=> (
                   <a key={rentAd.id}
-                     className={'list-group-item' + (rentAd == this.props.selected ? ' active':'')}
+                     className={'list-group-item' + (rentAd == selected ? ' active':'')}
                      onClick={() => this.props.onClick(rentAd) }>
 
                       <span className="badge price">${rentAd.rentPrice}</span>

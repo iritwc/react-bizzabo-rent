@@ -32,6 +32,7 @@ class InfoPanel extends Component {
   static propTypes = {
     isActive: PropTypes.bool,
     rentAd: PropTypes.object,
+    onToggleFavorite: PropTypes.any
   };
 
   static defaultProps = {
@@ -39,9 +40,9 @@ class InfoPanel extends Component {
     rentAd: RENT_AD_EXAMPLE,
   };
 
-  state = {
-    isFavorite: false,
-  };
+  // state = {
+  //   isFavorite: false,
+  // };
 
   /**
    * When no rent ad is selected we hide the info bar
@@ -54,14 +55,16 @@ class InfoPanel extends Component {
     return this.props.rentAd;
   }
 
-  onSaveFavoriteClicked = ()=> {
+  onSaveFavoriteClicked() {
     console.log('Save favorite');
-    this.setState({isFavorite: true})
+    // this.setState({isFavorite: true})
+    this.props.onToggleFavorite({favorite: true});
   };
 
-  onRemoveFavoriteClicked = ()=> {
+  onRemoveFavoriteClicked() {
     console.log('Remove favorite');
-    this.setState({isFavorite: false})
+    // this.setState({isFavorite: false})
+    this.props.onToggleFavorite({favorite: false});
   };
 
   render() {
@@ -106,15 +109,15 @@ class InfoPanel extends Component {
   }
 
   renderActionButton() {
-    const { isFavorite } = this.state;
+    const { rentAd } = this.props;
 
-    if (isFavorite) {
+    if (rentAd.favorite) {
       return (
-        <RemoveFavoriteButton onClick={this.onRemoveFavoriteClicked} />
+        <RemoveFavoriteButton onClick={()=> this.onRemoveFavoriteClicked()} />
       );
     } else {
       return (
-        <SaveFavoriteButton onClick={this.onSaveFavoriteClicked} />
+        <SaveFavoriteButton onClick={()=> this.onSaveFavoriteClicked()} />
       );
     }
   }

@@ -22,10 +22,10 @@ html, body {
     display: grid;
     height: 100%;
     grid-template-columns: 300px 1fr 300px;
-    grid-template-rows: 150px 1fr 1fr;
+    grid-template-rows: 150px 600px;
     grid-template-areas:    "summary price-filter info-panel"
-                            "rent-ads-list map info-panel"
                             "rent-ads-list map info-panel";
+                            /*"rent-ads-list map info-panel";*/
     grid-gap: 10px 10px;
     grid-area: view-container;
 }

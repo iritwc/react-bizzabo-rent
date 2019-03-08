@@ -28,14 +28,14 @@ class Map extends Component {
   }
 
   render() {
-    const {ads, selected=SAN_FRANCISCO_COORDINATES} = this.props;
-
+    const {ads, selected } = this.props;
+    const { latitude=SAN_FRANCISCO_COORDINATES.latitude, longitude=SAN_FRANCISCO_COORDINATES.longitude } = selected || {};
     return (
         <GoogleMap
           defaultZoom={13}
           defaultCenter={{
-            lat: SAN_FRANCISCO_COORDINATES.latitude,
-            lng: SAN_FRANCISCO_COORDINATES.longitude
+            lat: latitude,
+            lng: longitude
         }}>
             {
                 ads.map(ad => {
@@ -43,7 +43,7 @@ class Map extends Component {
                       position={{ lat: ad.latitude, lng: ad.longitude }}
                       onClick={(marker)=> this.onMarkerClicked(marker, ad)}
                       // Note, for hover effect use MapMarkerIcons.Hovered
-                      icon={(selected === ad) ? MapMarkerIcons.Selected : MapMarkerIcons.Regular}
+                      icon={(selected && selected.id === ad.id) ? MapMarkerIcons.Selected : MapMarkerIcons.Regular}
                   />);
                 })
             }

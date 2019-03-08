@@ -9,19 +9,14 @@ class Summary extends Component {
 
   static defaultProps = {};
 
-  // state = {
-  //   isToggleFavorite: false,
-  // };
+    onToggleFavoriteClick() {
 
-  onToggleFavoritesClicked = () => {
-    console.log('Toggle favorites');
-    // this.setState({isToggleFavorite: !this.state.isToggleFavorite});
-    this.onToggleFavoritesClicked({ isToggleFavorite: !this.state.isToggleFavorite});
-  };
+      this.props.onToggleFavorite({ isToggleFavorite: !this.props.filter.isToggleFavorite });
+    }
 
   render() {
     const {total, ads} = this.props;
-
+    const favorites = ads.filter(ad => ad.favorite);
     const sum = ads.map(ad=>ad.rentPrice).reduce((prev, current) => {return prev+current; }, 0);
     const avg = (((ads.length>0) ? sum/ads.length : 0)).toFixed(2);
 
@@ -30,9 +25,9 @@ class Summary extends Component {
         <div className="favorites-action text-center">
           <a role="button" aria-label="Toggle"
              className={`btn btn-default btn-lg toggle-favorites ${this.toggleFavoritesActiveClass}`}
-             onClick={this.onToggleFavoritesClicked} >
+             onClick={()=> this.onToggleFavoriteClick()} >
             <span aria-hidden="true" className={`glyphicon ${this.toggleFavoritesIconClass}`}>
-            </span> Toggle Favorites <span className="badge favorites-counter">3</span>
+            </span> Toggle Favorites <span className="badge favorites-counter">{favorites.length}</span>
           </a>
         </div>
         <dl className="dl-horizontal pull-left">
@@ -48,11 +43,13 @@ class Summary extends Component {
   }
 
   get toggleFavoritesActiveClass() {
-    return this.props.isToggleFavorite ? 'active' : '';
+    const {filter} = this.props;
+    return filter.isToggleFavorite ? 'active' : '';
   }
 
   get toggleFavoritesIconClass() {
-    return this.props.isToggleFavorite ? 'glyphicon-star' : 'glyphicon-star-empty';
+    const {filter} = this.props;
+    return filter.isToggleFavorite ? 'glyphicon-star' : 'glyphicon-star-empty';
   }
 
 }
