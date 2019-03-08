@@ -1,0 +1,9 @@
+
+.map-loading {
+    height: 100%;
+}
+
+.google-map {
+    height: 100%;
+    border-radius: 4px;
+}

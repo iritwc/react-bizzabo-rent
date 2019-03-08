@@ -1,0 +1,70 @@
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+#app-root {
+    margin: 0;
+    height: 100%;
+    background-color: #FEFEFE;
+}
+
+.grid-container {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 1fr;
+    grid-template-areas: "header" "view-container" ;
+    grid-gap: 10px 10px;
+}
+
+.grid-view-container {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 300px 1fr 300px;
+    grid-template-rows: 150px 1fr 1fr;
+    grid-template-areas:    "summary price-filter info-panel"
+                            "rent-ads-list map info-panel"
+                            "rent-ads-list map info-panel";
+    grid-gap: 10px 10px;
+    grid-area: view-container;
+}
+
+.header {
+    grid-area: header;
+}
+
+.summary {
+    grid-area: summary;
+}
+
+.price-filter {
+    grid-area: price-filter;
+}
+
+.info-panel {
+    grid-area: info-panel;
+}
+
+.map {
+    grid-area: map;
+}
+
+.rent-ads-list {
+    grid-area: rent-ads-list;
+}
+
+.price-filter-placeholder {
+    text-align: center;
+    background-color: #e0e0e0;
+    background-image: repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(255, 255, 255, .5) 35px, rgba(255, 255, 255, .5) 70px);
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, .1);
+    border-radius: 4px;
+}
+
+.price-filter-placeholder h2 {
+    font-weight: 700;
+    color: #616161;
+    margin: 0;
+    line-height: 150px;
+}

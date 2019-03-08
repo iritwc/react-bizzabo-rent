@@ -1,0 +1,85 @@
+
+.rent-ads-list {
+    position: relative;
+    overflow: scroll;
+    direction: rtl;
+}
+
+.rent-ads-list .list-group {
+    overflow-x: hidden;
+    margin-bottom: 0px;
+}
+
+.rent-ads-list .list-group-item.group-title {
+    z-index: 2;
+    color: #fff;
+    text-transform: uppercase;
+    margin-top: 15px;
+    cursor: default;
+    background: #2f516e;
+    margin-left: -1px;
+    margin-right: -1px;
+}
+
+.rent-ads-list .list-group-item.group-title:hover {
+    background: #2f516e;
+}
+
+.rent-ads-list .list-group-item.group-title h4 {
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.rent-ads-list .group-title:first-child {
+    margin-top: 0px;
+}
+
+.rent-ads-list .group-title .list-group-item-heading {
+    text-align: center;
+    font-weight: 800;
+}
+
+.rent-ads-list .group-title .ads-count {
+    color: #2f516e;
+    background-color: white;
+    font-weight: 600;
+    padding: 5px 10px;
+    font-size: 14px;
+    letter-spacing: .05em;
+    text-transform: none;
+}
+
+.rent-ads-list a.list-group-item {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    direction: ltr;
+    cursor: pointer;
+    color: #303641;
+}
+
+.rent-ads-list .list-group-item:hover {
+    background-color: #f5f6fa;
+}
+
+.rent-ads-list .list-group-item .price {
+    font-weight: 400;
+    padding: 4px 10px;
+    font-size: 14px;
+    letter-spacing: .05em;
+    background-color: #2f516e;
+    color: white;
+}
+
+.rent-ads-list .list-group-item.active {
+    background: #3399cc;
+    border-color: #3399cc;
+    color: white;
+}
+
+.rent-ads-list .list-group-item.active .price {
+    background-color: white;
+    color: #303541;
+    font-weight: 700;
+}

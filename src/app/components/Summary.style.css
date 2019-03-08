@@ -1,0 +1,52 @@
+.summary {
+    margin-bottom: 0;
+    border-color: transparent;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, .1);
+    background: rgb(245, 246, 250);
+    background: -moz-linear-gradient(top, rgba(245, 246, 250, 1) 0%, rgba(251, 251, 253, 1) 12%, rgba(255, 255, 255, 1) 33%, rgba(255, 255, 255, 1) 100%);
+    background: -webkit-linear-gradient(top, rgba(245, 246, 250, 1) 0%, rgba(251, 251, 253, 1) 12%, rgba(255, 255, 255, 1) 33%, rgba(255, 255, 255, 1) 100%);
+    background: linear-gradient(to bottom, rgba(245, 246, 250, 1) 0%, rgba(251, 251, 253, 1) 12%, rgba(255, 255, 255, 1) 33%, rgba(255, 255, 255, 1) 100%);
+}
+
+.summary dl {
+    font-size: 18px;
+    color: #303641;
+}
+
+.summary .favorites-action {
+    margin: 5px 0;
+}
+
+.summary .favorites-action .toggle-favorites {
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 30px;
+    color: #3399CC;
+    background: white;
+    border-color: #3399CC;
+}
+
+.summary .favorites-action .toggle-favorites.active {
+    color: #fff;
+    background: #3399CC;
+    border-color: #3399CC;
+    box-shadow: none;
+}
+
+.summary .favorites-action .favorites-counter {
+    margin-left: 8px;
+    background-color: #3399CC;
+}
+
+.summary .favorites-action .toggle-favorites.active .favorites-counter {
+    background-color: #303641;
+}
+
+.summary .favorites-action .toggle-favorites.active .glyphicon {
+    color: #FFCA28;
+}
+
+.summary .favorites-action .toggle-favorites .glyphicon {
+    color: #3399CC;
+}
