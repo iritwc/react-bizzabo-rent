@@ -5,6 +5,7 @@ import Summary from './Summary';
 import RentAdsList from './RentAdsList';
 import Rent from './Rent';
 import Filter from "./Filter";
+import PriceFilter from "./PriceFilter";
 
 export {
   Header,
@@ -13,5 +14,6 @@ export {
   Summary,
   RentAdsList,
   Rent,
-  Filter
+  Filter,
+  PriceFilter
 };

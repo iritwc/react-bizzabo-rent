@@ -30,9 +30,14 @@ class Map extends Component {
   render() {
     const {ads, selected } = this.props;
     const { latitude=SAN_FRANCISCO_COORDINATES.latitude, longitude=SAN_FRANCISCO_COORDINATES.longitude } = selected || {};
+    console.log('lat lng' ,latitude, longitude);
     return (
         <GoogleMap
           defaultZoom={13}
+          // center={{
+          //     lat: latitude,
+          //     lng: longitude
+          // }}
           defaultCenter={{
             lat: latitude,
             lng: longitude

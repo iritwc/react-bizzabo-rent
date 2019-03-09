@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import RentAdsAPI from '../services/rent-ads-api';
 import {
-    Header,
     InfoPanel,
     Map,
     Summary,
     RentAdsList,
-    Filter
+    Filter,
+    PriceFilter
 } from '../components';
 
 import RentAd from "../services/rent-ad";
+
 
 class Rent extends Component {
 
@@ -18,7 +19,7 @@ class Rent extends Component {
         this.state = {
             ads: [],
             selected: null,
-            filter: { min: 500, max: 10000, value: '', isToggleFavorite: false }
+            filter: { min: 0, max: 0, isToggleFavorite: false }
         };
     }
 
@@ -46,7 +47,7 @@ class Rent extends Component {
 
         return this.state.ads
             .filter(ad => ad.rentPrice >= filter.min &&
-                    (filter.value? ad.rentPrice <= filter.value : true) &&
+                    (filter.max ? ad.rentPrice <= filter.max : true) &&
                     ((filter.isToggleFavorite) ? ad.favorite : true));
     }
 
@@ -57,7 +58,8 @@ class Rent extends Component {
         return (
             <div className='grid-view-container'>
                 <Summary total={this.state.ads.length} ads={ads} filter={filter} onToggleFavorite={(f) => this.handleFilter(f)} />
-                <Filter filter={filter} onChange={(f) => this.handleFilter(f)} />
+                <Filter filter={filter} onChange={(f) => this.handleFilter(f)} min="500" max="10000" />
+                {/*<PriceFilter filter={filter} onChange={(f) => this.handleFilter(f)} min="500" max="10000" />*/}
                 <InfoPanel rentAd={selected} onToggleFavorite={(ad) => this.handleClick(ad)} />
                 <Map ads={ads} selected={selected} onClick={(ad) => this.handleClick(ad)} />
                 <RentAdsList ads={ads} selected={selected} onClick={(ad) => this.handleClick(ad)} />
